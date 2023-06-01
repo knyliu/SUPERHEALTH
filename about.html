@@ -79,7 +79,7 @@
 
     .btn {
       height: 35px;
-      width: 250px;
+      width: 200px;
       font-size: 13px;
       margin: 20px 0px 20px 0px;
       background-color: rgb(87, 87, 87);
@@ -343,6 +343,22 @@
             display: block;
             margin: 0 auto;
           }
+          .custom-input1 {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
         </style>
 </head>
 <body>
@@ -420,8 +436,9 @@
   </script>
     
 		<h2>留言板</h2>
-        <input type="text" id="messageInput" placeholder="請輸入留言">
-    <button onclick="addMessage()">新增留言</button>
+    <input type="text" id="messageInput" placeholder="請輸入留言" class="custom-input1">
+    <br>
+    <button onclick="addMessage()" class="btn">新增留言</button>
     
     <div id="messageBoard"></div>
 		
@@ -496,7 +513,7 @@
 	</section>
 </div>
 </div>
-
+<br><br>
   <footer>
     <div class="footer-main">
       <div class="footer-detail">
