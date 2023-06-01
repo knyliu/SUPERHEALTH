@@ -310,9 +310,77 @@
         background-size: cover;
         border-radius: 50%;
       }
+
+      table {
+  width: 60%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+td:first-child {
+  font-weight: bold;
+  text-align: right;
+  width: 40%;
+}
+
+td:last-child {
+  text-align: center;
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+.custom-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #ffffff;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+
+
+
+
+
+      
       </style>
     
-    <title>餐點營養素估計！</title>
+    <title>Nutrition</title>
   </head>
   
   <body>
@@ -332,20 +400,31 @@
   
       </ul>
     </nav>
-  <br><br>
+  <br>
+  <div class="container-contact">
+    <h1>Nutrition</h1>
+    <br>
+    <h5>Analyzing Nutrition in Food</h5>
+    <br><br><br>
+    <h4>詳細輸入您這餐吃了什麼，將分析出該餐的所有熱量、營養素、與健康標示。</h4><br>
+    <h4>輸入越詳細越好，可包含大約的公克數，也可以直接貼上使用的完整食譜/材料清單！</h4>
+    </div>
     <div class="container1">
-    <h1>餐點營養素估計！</h1>
 
-    <h4>詳細輸入您這餐吃了什麼，將分析出該餐的所有熱量、營養素、與健康標示。輸入越詳細越好，可包含大約的公克數，也可以直接貼上使用的完整食譜/材料清單！</h4>
-    <label for="name">請輸入餐點內容(用世界上所有語言都可以！)</label>
-    <input type="text" id="name" size="80">
-    <br><br>
-    
-    <label for="age">請輸入年紀(用於估計每日百分比)</label>
-    <input type="number" id="age">
+      <br><br>
+      <h4>請輸入餐點內容（用世界上所有語言都可以！）</h4><br>
+
+      <input type="text" id="name" class="custom-input" size="80">
+      <br><br><br>
+    <h4>請輸入年紀（用於估計每日百分）</h4><br>
+
+    <input type="number" id="age"  class="custom-input" >
     <br><br>
     
     <button class=btn onclick="submitForm()">Submit</button>
+    <br><br><br>
+
+    <div class="center-container">
     <table>
   <tr>
     <td>翻譯結果</td>
@@ -388,6 +467,9 @@
     <td id=VitC></td>
   </tr>
     </table>
+     </div>
+
+<br>
     <h4>所有資訊：</h4>
 
     <div id="response-container"></div>
