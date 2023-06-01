@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
-    <title>Calories History</title>
-    <style type="text/css">
+	<title>關於我們</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			margin: 0;
+		}
+		section {
+			padding: 20px;
+			max-width: 800px;
+			margin: auto;
+		}
+	</style>
+      <style type="text/css">
 
         .grid-full {
         display: grid;
@@ -305,35 +324,155 @@
       background-size: cover;
       border-radius: 50%;
     }
+
     </style>
 </head>
-
 <body>
-    <nav>
-        <ul>
-          <li><a href="index.html">SUPERHEALTH</a></li>
-          <li><a href="nutrition.html">Nutrition</a></li>
-          <li><a href="exercise.html">AI Exercise</a></li>
-          <li><a href="diet.html">AI Diet</a></li>
-          <li><a href="game.html">Game</a></li>
-          <li><a href="calories.html">Calories</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank">Visualization</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+  <nav>
+    <ul>
+      <li><a href="index.html">SUPERHEALTH</a></li>
+      <li><a href="nutrition.html">Nutrition</a></li>
+      <li><a href="exercise.html">AI Exercise</a></li>
+      <li><a href="diet.html">AI Diet</a></li>
+      <li><a href="game.html">Game</a></li>
+      <li><a href="calories.html">Calories</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank">Visualization</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
+
+    </ul>
+  </nav>
+  <div class="container-contact">
+  <div class="container1" style = "text-align: center;">
+    <br>
+
+	<section>
+		<h2>我們的任務</h2>
+    <br>
+
+		<p>我們的任務是負責大家的健康飲食，想要知道自己一天所攝取的熱量嗎？</p>
+    <p>你了解健康飲食的重要性嗎？我們負責替你解答!!</p>
+    <p>除此之外，這個網站也有設置健康飲食小遊戲喔~</p>
+    <p>讓我們一起變成健康飲食小達人吧!!</p>
+    <p>啊!對了!別忘記最重要的功能「量身訂製的健身計畫」全部告訴你!!</p>
+    <br>
+
+		<h2>我們的團隊</h2>
+		 <style>
+    #slideshow {
+      width: 300px;
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
     
-        </ul>
-      </nav>
-      <br>
-      <div class="container-contact">
-      <h1>Calories History</h1>
-      <br>
-      <h5>Check Your Calories Intake History</h5>
-      <br>
-      </div>
-    <iframe src="https://script.google.com/macros/s/AKfycbzbF0fe5H4fzbMbw3Ct59toes6Z5gdbS_0zkh0vfRHIMGjKfNufq_1lpcOUbCCopwPQkg/exec" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
-  </iframe>
+    #slideshow img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+    }
+  </style>
+    
+    <div id="slideshow">
+    <img src="王方方照.jpg"  title="咦 是這樣做嗎?">
+    <img src="許家寧照.jpg"  title="歐好討厭 太陽好大!">
+    <img src="廖誌晨照.jpg"  title="嗯 我真好看~">
+    <img src="劉彥谷照.jpg"  title="回眸一笑~">
+    <img src="陳芊妤照.jpg"  title="我要拿A+!!">
+  </div>
+<script>
+    var images = document.querySelectorAll('#slideshow img');
+    var currentImage = 0;
+
+    function nextImage() {
+      images[currentImage].style.opacity = '0';
+      currentImage = (currentImage + 1) % images.length;
+      images[currentImage].style.opacity = '1';
+    }
+
+    setInterval(nextImage, 3000); // 每隔3秒切換圖片
+  </script>
+    
+		<h2>留言板</h2>
+        <input type="text" id="messageInput" placeholder="請輸入留言">
+    <button onclick="addMessage()">新增留言</button>
+    
+    <div id="messageBoard"></div>
+		
+
+	<script>
+        var messages = []; // 儲存留言的陣列
+        
+        // 新增留言
+        function addMessage() {
+            var input = document.getElementById("messageInput");
+            var message = input.value;
+            
+            if (message !== "") {
+                var newMessage = {
+                    content: message,
+                    replies: []
+                };
+                
+                messages.push(newMessage);
+                displayMessages();
+                input.value = "";
+            }
+        }
+        
+        // 回覆留言
+        function replyMessage(index) {
+            var replyInput = document.getElementById("replyInput-" + index);
+            var replyMessage = replyInput.value;
+            
+            if (replyMessage !== "") {
+                var message = messages[index];
+                message.replies.push(replyMessage);
+                displayMessages();
+                replyInput.value = "";
+            }
+        }
+        
+        // 顯示留言
+        function displayMessages() {
+            var messageBoard = document.getElementById("messageBoard");
+            messageBoard.innerHTML = ""; // 清空留言區域
+            
+            for (var i = 0; i < messages.length; i++) {
+                var messageElement = document.createElement("div");
+                messageElement.innerHTML = "<p>" + messages[i].content + "</p>";
+                
+                // 回覆輸入框
+                var replyInput = document.createElement("input");
+                replyInput.id = "replyInput-" + i;
+                replyInput.placeholder = "請輸入回覆";
+                messageElement.appendChild(replyInput);
+                
+                // 回覆按鈕
+                var replyButton = document.createElement("button");
+                replyButton.innerText = "回覆";
+                replyButton.setAttribute("onclick", "replyMessage(" + i + ")");
+                messageElement.appendChild(replyButton);
+                
+                // 回覆列表
+                var repliesList = document.createElement("ul");
+                for (var j = 0; j < messages[i].replies.length; j++) {
+                    var replyItem = document.createElement("li");
+                    replyItem.innerText = messages[i].replies[j];
+                    repliesList.appendChild(replyItem);
+                }
+                messageElement.appendChild(repliesList);
+                
+                messageBoard.appendChild(messageElement);
+            }
+        }
+    </script>
+	</section>
+</div>
+</div>
 
   <footer>
     <div class="footer-main">
@@ -453,8 +592,5 @@
 
     </div>
   </footer>
-
-
 </body>
-
 </html>
