@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game - SUPERHEALTH</title>
+	<meta charset="UTF-8">
+
+	<style type="text/css">
+
+        .grid-full {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        border-radius: 10px;
+
+      }
+      .grid-product-full {
+        background: #f1f1f1;
+        grid-column: span 3;
+        display: flex;
+        position: relative;
+        border-radius: 10px;
+
+      }
+      .grid-detail-sum {
+        position: absolute;
+        top: 35%;
+        right: 12%;
+        text-align: center;
+        border-radius: 10px;
+
+      }
+      .grid-detail-sum h2 {
+        font-size: 3rem;
+        font-weight: 500;
+      }
+      .grid-detail-sum p {
+        margin: 20px 0;
+      }
+      .grid-detail-sum a {
+        color: #3498db;
+      }
+      .grid-detail-sum a:hover {
+        text-decoration: underline;
+      }
+    .container-contact {
+      padding: 20px;
+      text-align: center;
+      color: rgb(87, 87, 87);
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+    }
+
+    .container-contact h3 {
+      font-size: 30px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .btn {
+      height: 35px;
+      width: 250px;
+      font-size: 13px;
+      margin: 20px 0px 20px 0px;
+      background-color: rgb(87, 87, 87);
+      color: rgb(255, 255, 255);
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+
+    .btn:hover {
+      background-color: rgb(211, 211, 211);
+      color: black;
+    }
+
+    input {
+      margin-top: 10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+
+    }
+
+
+    nav {
+      width: 100%;
+      height: 43px;
+      background: #434345;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 40px;
+    }
+
+    nav ul li a {
+      font-weight: 300;
+      color: #D9D9DB;
+      transition: 100ms;
+      font-size: 12px;
+
+    }
+
+    nav ul li a:hover {
+      color: #f5f5f7;
+    }
+
+
+
+    .t_container {
+      width: 60%;
+      margin: 0 auto;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .t_container-truncate {
+      text-overflow: clip;
+      /* 移除省略號 */
+      width: 10px;
+      /* 指定特定長度值，例如 200px */
+    }
+
+    .t_container-truncate::after {
+      content: "...";
+      /* 省略號內容 */
+    }
+
+
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+    /*--- footer ---*/
+    footer {
+      width: 100%;
+      height: 500px;
+      background: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-main {
+      width: 1070px;
+    }
+
+    .footer-detail {
+      font-size: .7rem;
+      color: #95a5a6;
+      padding: 20px 0;
+      border-bottom: 1px solid #bdc3c7;
+    }
+
+    .footer-detail a {
+      color: #2c3e50;
+    }
+
+    .footer-detail a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-welcome {
+      display: flex;
+      margin: 20px 0;
+      font-size: .8rem;
+      color: #34495e;
+    }
+
+    .footer-welcome i {
+      margin-right: 10px;
+    }
+
+    .footer-ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-ul ul {
+      list-style: none;
+    }
+
+    .footer-ul ul li {
+      margin: 7px 0;
+    }
+
+    .footer-ul ul li h4 {
+      color: #34495e;
+      font-size: .7rem;
+    }
+
+    .footer-ul ul li a {
+      color: #7f8c8d;
+      font-size: .7rem;
+    }
+
+    .footer-ul ul li a:hover {
+      text-decoration: underline;
+    }
+
+    #mt {
+      padding-top: 30px;
+    }
+
+    .footer-contact {
+      border-bottom: 1px solid #bdc3c7;
+      padding: 12px 0;
+      margin: 10px 0;
+      color: #7f8c8d;
+      font-size: .7rem;
+    }
+
+    .footer-contact a {
+      color: #3498db;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copyright {
+      color: #7f8c8d;
+      font-size: .7rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-copyright ul {
+      display: flex;
+      list-style: none;
+      width: auto;
+    }
+
+    .footer-copyright ul li {
+      margin: 0 10px;
+    }
+
+    .footer-copyright ul li a {
+      color: #7f8c8d;
+    }
+
+    .footer-copyright ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .vr {
+      height: 15px;
+      width: 1px;
+      background: #bdc3c7;
+    }
+
+    .footer-lang {
+      display: flex;
+    }
+
+    .footer-lang p {
+      margin: 0 10px;
+    }
+
+    .circle {
+      width: 15px;
+      height: 15px;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: 50%;
+    }
+    </style>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		
+		.button-container {
+        text-align: center;
+        margin-top: 20px;
+        }
+
+        button {
+         height: 35px;
+            width: 250px;
+            font-size: 13px;
+            margin: 20px 0px 20px 0px;
+            background-color: rgb(87, 87, 87);
+            color: rgb(255, 255, 255);
+            border-radius: 50px;
+            transition: 0.3s;
+
+        }
+
+    button:hover {
+      background-color: rgb(211, 211, 211);
+            color: black;
+    }
+
+		.quiz-container {
+			margin-bottom: 20px;
+		}
+
+		.quiz-container h3 {
+			margin-top: 0;
+		}
+
+		.quiz-container p {
+			margin-bottom: 10px;
+		}
+
+		.result-container {
+			text-align: center;
+		}
+
+		.result-container p {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.result-container button {
+			margin-top: 20px;
+		}
+		.finalresult-container {
+			text-align: center;
+			margin-top: 40px;
+			background-color: #f9f9f9;
+			padding: 20px;
+			border-radius: 5px;
+		}
+		.finalresult-container h2 {
+			margin-top: 0;
+		}
+
+		.finalresult-container p {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.recommendation-container {
+			width: 60%;
+			margin-top: 80px;
+			background-color: #f9f9f9;
+			padding: 80px;
+			border-radius: 15px;
+		}
+
+		.recommendation-container h2 {
+			margin-top: 0;
+		}
+
+		.recommendation-container p {
+			margin-bottom: 10px;
+		}
+		.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+	</style>
+</head>
+<body>
+	<nav>
+        <ul>
+          <li><a href="index.html">SUPERHEALTH</a></li>
+          <li><a href="nutrition.html">Nutrition</a></li>
+          <li><a href="exercise.html">AI Exercise</a></li>
+          <li><a href="diet.html">AI Diet</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="calories.html">Calories</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank">Visualization</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+    
+        </ul>
+      </nav>
+      <br>
+      <div class="container-contact">
+        <h1>Healthy Eating Quiz Game</h1>
+        <br>
+        <h5>Try Your Best To Answer All The Questions Correctly.</h5>
+		<br><br><br>
+		<h2>請選擇想要進行的測驗</h2>
+
+        </div>
+
+	<div class="container" style = "text-align: center;">
+		<div id="topicSelection">
+			<button onclick="startQuiz('type1')">食物知識測驗</button>
+			<button onclick="startQuiz('type2')">飲食性格測驗</button>
+		</div>
+		<div id="quizContainer" style="display: none;">
+			<div class="quiz-container">
+				<h3 id="questionNumber"></h3>
+				<p id="question"></p>
+				<ul id="options" style="list-style-type: none; padding: 0;">
+					<li><input type="radio" name="answer" value="A"> <span id="optionA"></span></li>
+					<li><input type="radio" name="answer" value="B"> <span id="optionB"></span></li>
+					<li><input type="radio" name="answer" value="C"> <span id="optionC"></span></li>
+				</ul>
+			</div>
+			<div class="button-container">
+				<button onclick="checkAnswer()">提交答案</button>
+			</div>
+			<div id="resultContainer" style="display: none;">
+				<div class="result-container">
+					<p id="result"></p>
+					<p id="explanation"></p>
+                    </div>
+					<button onclick="nextQuestion()">下一題</button>
+					<button onclick="restartQuiz()">再來一次</button>
+				</div>
+			</div> 
+			
+		</div>
+		<div id="finalresultContainer" style="display: none;">
+		<div class="finalresult-container">
+			<h2 id ="finaltitle"></h2>
+			<p id="finalScore"></p>
+			<p id="feedbacks"></p>
+		</div>
+	    </div>
+		<div class="container2">
+
+		<div class="recommendation-container" style = "text-align: center;">
+			<h2 >今日推薦幸運水果</h2>
+			<p id="fruitTitle"></p>
+			<p id="fruitContent"></p>
+		</div>
+	</div>
+
+		<div class="button-container">
+			<button onclick="goBack()">返回</button>
+		</div>
+	</div>
+
+	<script>
+		var type1Questions = [
+			{
+				question: "椰子是什麼類型的水果？",
+				optionA: "漿果",
+				optionB: "石果",
+				optionC: "堅果",
+				answer: "C",
+			    explanation:"儘管外觀看起來像漿果，但椰子實際上是堅果，因為它有一個堅硬的外殼和內核。"},
+			{
+        question: "烤麵包的起源最早可以追溯到哪個時期？",
+        optionA: "古希臘時期 ",
+        optionB: "羅馬帝國時期 ",
+        optionC:"中世紀",
+        answer: "B",
+        explanation: "烤麵包的起源可以追溯到古羅馬帝國時期，那時人們會用烤爐來製作麵包。"
+      },{
+        question: "鳳梨的名字來自哪個單詞？",
+        optionA: "火焰",
+        optionB: "鳥",
+        optionC: "樹酯",
+        answer: "A",
+        explanation: "鳳梨的名字來自西班牙語單詞“piña”，意思是“松鳥”"
+      },{
+        question: "巧克力是哪個地區的人的發明？",
+        optionA: "義大利",
+        optionB: "瑞士",
+        optionC: "墨西哥",
+        answer: "C",
+        explanation: "巧克力最初是由古代瑪雅人和阿茲特克人在墨西哥發明的，他們使用可可豆來製作巧克力飲料。"
+      },{
+        question: "以下哪種食物被認為是「世界上最古老的堅果」？",
+        optionA: "栗子",
+        optionB: "杏仁",
+        optionC: "核桃",
+        answer: "C",
+        explanation: "核桃被認為是世界上最古老的堅果之一，其種植歷史可以追溯到公元前7000年左右。"
+      },{
+        question: "以下哪種食物被認為是「世界上最辣的辣椒」？",
+        optionA: "卡羅萊納重擊辣椒",
+        optionB: "印度陶辣椒",
+        optionC: "牛心椒",
+        answer: "A",
+        explanation: "卡羅萊納重擊辣椒通常被認為是世界上最辣的辣椒之一，其辣度可達到極高的Scoville Heat Units（SHU）"
+      },{
+        question: "以下哪種食物是法國傳統的奶酪？",
+        optionA: "卡魯多奶酪",
+        optionB: "藍紋奶酪",
+        optionC: "莫札瑞拉奶酪",
+        answer: "B",
+        explanation: "藍紋奶酪（例如羅克福特奶酪和藍紋奶酪）是法國傳統的奶酪之一，其特點是帶有藍色霉斑。"
+      },{
+        question: "以下哪種食物是良好的抗氧化劑來源？",
+        optionA: "糖果",
+        optionB: "巧克力",
+        optionC: "莓果",
+        answer: "C",
+        explanation: "莓果（如藍莓和覆盆子）含有豐富的抗氧化劑，有助於對抗自由基損傷，提升免疫系統和心臟健康。"
+      },{
+        question: "以下哪種食物是良好的維生素D來源？",
+        optionA: "橙汁",
+        optionB: "魚肝油",
+        optionC: "菠菜",
+        answer: "B",
+        explanation: "魚肝油是良好的維生素D來源，維生素D有助於骨骼健康和鈣質吸收。"
+      },{
+        question: "以下哪種食物是良好的維生素A來源？",
+        optionA: "香蕉",
+        optionB: "紅肉",
+        optionC: "胡蘿蔔",
+        answer: "C",
+        explanation: "胡蘿蔔含有豐富的維生素A，對於視力健康、免疫系統和皮膚健康至關重要。"
+      }
+		];
+
+		var type2Questions = [
+			{
+				question: "在早餐時，你更傾向於選擇：",
+				optionA: "豐盛的早餐，包括蛋、麵包和水果",
+				optionB: "營簡單輕盈的早餐，如優格或水果沙拉",
+				optionC: "不吃早餐或只喝咖啡",
+				answer: "美味的早餐是一天美好的開始",
+                explanation: " "
+			},
+			{
+				question: "在午餐時，你更傾向於選擇：",
+				optionA: "沙拉或輕食，如沙拉或三明治",
+				optionB: "熱食，如湯、意大利面或漢堡",
+				optionC: "隨意選擇，視當天心情而定品",
+				answer: "",
+                explanation: "今天午餐要吃什麼好呢? "
+				},
+			{
+				question: "在晚餐時，你更傾向於選擇：",
+				optionA: "吃速食或便利食品",
+				optionB: "外出就餐或點外賣",
+				optionC: "自己烹飪的家常菜",
+				answer: "",
+                explanation: "來吃一頓大餐慰勞一天的疲憊吧!"
+				},
+			{
+				question: "在甜點方面，你更傾向於選擇：",
+				optionA: "巧克力蛋糕或冰淇淋",
+				optionB: "水果沙拉或低糖甜點",
+				optionC: "不喜歡甜點或很少食用",
+				answer: "",
+                explanation: "吃玩甜食要記得刷牙 "
+				},{
+				question: "當遇到壓力或壓力情況時，你更傾向於選擇：",
+				optionA: "吃安慰食物，如巧克力或薯片",
+				optionB: "偏好健康的食物或飲品，如茶或水果",
+				optionC: "水或其他無糖飲品",
+				answer: "",
+                explanation: "想不開的時候就找人講講話吧!"
+				},{
+				question: "在飲品方面，你更傾向於選擇：",
+				optionA: "自咖啡或能量飲料",
+				optionB: "茶或果汁",
+				optionC: "吃速食或便利食品",
+				answer: "",
+                explanation: "飲料就和白熊效應一樣，越克制越想要 "
+				},{
+				question: "在挑選水果時，你更傾向於選擇：",
+				optionA: "多種顏色和種類的水果，以獲得多種營養",
+				optionB: "自己最喜歡的水果，無論顏色或種類",
+				optionC: "只選擇一兩種你已經熟悉並喜歡的水果種類",
+				answer: "",
+                explanation: "每天吃一份水果，腸胃好多多"
+				},{
+				question: "在零食方面，你更傾向於選擇：",
+				optionA: "鹹味零食，如薯片或花生",
+				optionB: "健康的零食，如堅果或蔬菜棒",
+				optionC: "很少或不吃零食",
+				answer: "",
+                explanation: "缺少零食的人生，就像看電影沒有爆米花 "
+				},{
+				question: "在外出用餐時，你更傾向於選擇：",
+				optionA: "常去熟悉的餐廳",
+				optionB: "尋找新的餐廳或嘗試新菜品",
+				optionC: "吃速食或便利食品",
+				answer: "",
+                explanation: "這裡沒有叫外送的選項喔! "
+				},{
+				question: "在選擇餐廳或食物時，你更傾向於：",
+				optionA: "考慮他人的飲食需求和偏好",
+				optionB: "做出獨立的選擇，不受他人影響",
+				optionC: "平衡考慮他人需求和自己喜好",
+				answer: "",
+                explanation: "趕快決定完去想下一餐要吃什麼"
+				}
+
+		];
+
+		var currentQuizType = "";
+		var currentQuestion = 0;
+		var score = 0;
+
+		function startQuiz(quizType) {
+			currentQuizType = quizType;
+			document.getElementById("topicSelection").style.display = "none";
+			document.getElementById("quizContainer").style.display = "block";
+			showQuestion();
+		}
+
+		function showQuestion() {
+			var questions = [];
+			if (currentQuizType === "type1") {
+				questions = type1Questions;
+			} else if (currentQuizType === "type2") {
+				questions = type2Questions;
+			}
+
+			var question = questions[currentQuestion];
+			document.getElementById("questionNumber").innerHTML = "問題 " + (currentQuestion+ 1);
+			document.getElementById("question").innerHTML = question.question;
+			document.getElementById("optionA").innerHTML = question.optionA;
+			document.getElementById("optionB").innerHTML = question.optionB;
+			document.getElementById("optionC").innerHTML = question.optionC;
+			document.getElementById("resultContainer").style.display = "none";
+			document.getElementById("explanation").innerHTML = "";
+			document.querySelector('input[name="answer"]:checked').checked = false;
+		}
+
+		function checkAnswer() {
+			var selectedOption = document.querySelector('input[name="answer"]:checked');
+			if (!selectedOption) {
+				alert("請選擇一個答案！");
+				return;
+			}
+
+			var questions = [];
+			if (currentQuizType === "type1") {
+				questions = type1Questions;
+			} else if (currentQuizType === "type2") {
+				questions = type2Questions;
+			}
+
+			var question = questions[currentQuestion];
+			if (currentQuizType === "type1"){
+				if (selectedOption.value === question.answer) {
+				score++;
+				document.getElementById("result").innerHTML = "回答正確！";
+			   } else {
+				document.getElementById("result").innerHTML = "回答錯誤！";
+			   }}
+			else if (currentQuizType === "type2"){
+				document.getElementById("result").innerHTML = " ";
+			}
+
+
+			document.getElementById("explanation").innerHTML = question.explanation;
+			document.getElementById("resultContainer").style.display = "block";
+		}
+
+		function nextQuestion() {
+			currentQuestion++;
+			if (currentQuestion < 10) {
+				showQuestion();
+			} else {
+				showFinalResult();
+			}
+		}
+
+		function showFinalResult() {
+			document.getElementById("quizContainer").style.display = "none";
+			document.getElementById("resultContainer").style.display = "none";
+			document.getElementById("finalresultContainer").style.display = "block";
+			document.getElementById("finaltitle").style.display = "block";
+			document.getElementById("finaltitle").innerHTML = "作答完畢" ;
+			document.getElementById("finalScore").style.display = "block";
+			if (currentQuizType === "type1"){
+			document.getElementById("finalScore").innerHTML = "你的最終得分是: " + score + " 分";
+			var feedbacks = "";
+				if (score <= 10) {
+					feedbacks = "您的知識有待提升。";
+				} else if (score <= 15) {
+					feedbacks = "您對食物小有研究。";
+				} else if (score <= 20) {
+					feedbacks = "您對食物知識關注頗高！";
+				} else {
+					feedbacks = "您是個食物知識達人！";
+				}}
+            else if (currentQuizType === "type2"){
+            	var feedbacks = "";
+            	var end = "";
+
+				if (score <= 15) {
+					end = "根莖類蔬菜";
+					feedbacks = "根莖類蔬菜充滿健康和活力。這些蔬菜（例如紅蘿蔔和馬鈴薯）是可靠且穩定的食物選擇，提供持久的能量和營養價值。您是堅毅、有耐心和可靠的人，在生活中追求穩定和健康，並以深厚的知識和智慧為基礎。";
+				} else if (score <=22 ) {
+					end = "深色蔬菜";
+					feedbacks = "綠葉蔬菜充滿了營養和天然的生命力。這些蔬菜（例如菠菜和生菜）提供了美味和活力。您是樂觀、充滿活力和喜悅的人，以積極的態度迎接生活，並且樂於分享快樂和笑容";
+				} else if (score <= 30) {
+					end= "多類蔬菜";
+					feedbacks = "多類蔬菜提供多種風味和營養價值。這些蔬菜（例如彩椒和茄子）在飲食中扮演著多種角色，可以用於炒菜、沙拉、烤箱烹調等多種方式。您是個多才多藝、富有彈性和創造力的人，善於適應不同的情境和角色，並且樂於嘗試新的事物和方法。";
+				} 
+            	document.getElementById("finalScore").innerHTML = "您的性格像: " + end ;
+			
+            }
+			document.getElementById("feedbacks").style.display = "block";
+			document.getElementById("feedbacks").innerHTML = "回饋"+feedbacks;
+				
+		}
+
+		function restartQuiz() {
+			currentQuestion = 0;
+			score = 0;
+			document.getElementById("topicSelection").style.display = "block";
+			document.getElementById("quizContainer").style.display = "none";
+			document.getElementById("finalScore").style.display = "none";
+			showQuestion();
+		}
+
+
+		function getRandomFruit() {
+			var fruits = ["蘋果:蘋果是健康和活力的象徵，運勢是穩定而持久的。就像蘋果的成熟過程需要時間一樣，你的努力和耐心將開花結果。蘋果象徵著知識和智慧，因此與學習和教育有關的事物可能對你的運勢有所助益。無論是在健康、事業還是人際關係上，都是穩定和正面的結果。","香蕉:香蕉象徵著幸福和快樂，因此與香蕉相關的運勢通常帶來愉快的時刻和美好的機會。就像香蕉的形狀一樣，你的運氣可能會彎彎曲曲，但最終會抵達成功的目的地。香蕉也被認為是能量和活力的來源，因此在健康和身體狀態方面，你可能會感受到提升。此外，香蕉還象徵著社交和溝通，因此你的人際關係可能變得更加豐富和愉快。","橘子:香蕉象徵著幸福和快樂，因此與香蕉相關的運勢通常帶來愉快的時刻和美好的機會。就像香蕉的形狀一樣，你的運氣可能會彎彎曲曲，但最終會抵達成功的目的地。香蕉也被認為是能量和活力的來源，因此在健康和身體狀態方面，你可能會感受到提升。此外，香蕉還象徵著社交和溝通，因此你的人際關係可能變得更加豐富和愉快。","葡萄:葡萄代表著豐富和成功，與葡萄相關的運勢通常帶來繁榮和好運的時刻。就像葡萄藤上結滿果實一樣，你的努力可能會得到豐碩的回報。葡萄也象徵著享受和慶祝，因此你可能會在人生中經歷一些值得慶祝的時刻。此外，葡萄還與豐富的創造力和藝術才能相關，如果你在這方面有興趣，你的運勢可能會更加璀璨。","西瓜:西瓜象徵著豐收和滿足，與西瓜相關的運勢通常帶來實現目標和滿足的時刻。就像西瓜的甜美汁液一樣，你的努力可能會獲得令人滿意的結果。西瓜也是夏季的象徵，因此與休閒和放鬆相關的運勢可能出現在你的生活中。此外，西瓜還象徵著家庭和團聚，你可能會在親密的人際關係中找到幸福和支持。"];
+			var fruitsContent = "";
+			var randomIndex = Math.floor(Math.random() * fruits.length);
+			var fruit = fruits[randomIndex];
+			document.getElementById("fruitTitle").innerHTML = "推薦水果"  
+			
+			
+			document.getElementById("fruitContent").innerHTML = fruit;
+		}
+
+		getRandomFruit();
+	</script>
+	<br><br><br>
+	<footer>
+		<div class="footer-main">
+		  <div class="footer-detail">
+			<p>1. The website content is for reference only.</p>
+			<p>2. Please follow the instructions of your physician.</p>
+			<p>3. Please carefully safeguard your personal ID (case-sensitive).</a></p>
+		  </div> <!-- end footer detail -->
+	
+		  <div class="footer-welcome">
+			<i class="fab fa-apple"></i>
+			<i class="fas fa-chevron-right"></i>
+			<p>Welcome to SUPERHEALTH</p>
+		  </div> <!-- end footer-welcome -->
+	
+		  <div class="footer-ul">
+			<ul>
+			  <li>
+				<h4>Function</h4>
+			  </li>
+			  <li><a href="nutrition.html" target="_blank">Nutrition Check</a></li>
+			  <li><a href="exercise.html" target="_blank">AI Exercise</a></li>
+			  <li><a href="diet.html" target="_blank">AI Diet</a></li>
+			  <li><a href="game.html" target="_blank">Game</a></li>
+			  <li><a href="calories.html" target="_blank">Calories</a></li>
+			  <li><a href="hitsory.html" target="_blank">History</a></li>
+			  <li><a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank">Data Visualization</a></li>
+	
+			</ul>
+	
+	
+			<ul>
+			  <li>
+				<h4>Health Information</h4>
+			  </li>
+			  <li><a href="https://www.mohw.gov.tw/mp-2.html" target="_blank">Ministry of Health and Welfare</a></li>
+			  <li><a href="https://www.hpa.gov.tw/EngPages/Index.aspx" target="_blank">Health Promotion Administration</a></li>
+			  <li><a href="https://www.nih.gov/health-information" target="_blank">National Institutes of Health </a></li>
+			  <li><a href="https://www.medicalnewstoday.com" target="_blank">MedicalNewsToday</a></li>
+	
+			</ul>
+	
+			<ul>
+			  <li>
+				<h4>Other Website</h4>
+			  </li>
+			  <li><a href="index.html" target="_blank">SUPERHEALTH</a></li>
+			  <li><a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank">HTMatplotLib</a></li>
+			  <li id="mt"></li>
+			  <li>
+				<h4>Contact</h4>
+			  </li>
+			  <li><a href="contact.html" target="_blank">Contact</a></li>
+	
+			</ul>
+	
+	
+	
+			<ul>
+			  <li>
+				<h4>About Course</h4>
+			  </li>
+			  <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
+			  <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
+			  <li><a href="https://courseap2.itc.ntnu.edu.tw/acadmOpenCourse/index.jsp"
+				  target="_blank">NTNU Internet Programming</a></li>
+			</ul>
+	
+	
+	
+			<ul>
+			  <li>
+				<h4>About Developer</h4>
+			  </li>
+			  <li><a href="about.html" target="_blank">About All</a></li>
+			  <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">kenny_liou</a></li>
+			  <li><a href="https://www.instagram.com/hn_roger01/" target="_blank">hn_roger01</a></li>
+			  <li><a href="https://www.instagram.com/ning.415/" target="_blank">ning.415</a></li>
+			  <li><a href="https://www.instagram.com/fy__0212/" target="_blank">fy__0212</a></li>
+			  <li><a href="https://www.instagram.com/dolly.chen.144/" target="_blank">dolly.chen.144</a></li>
+	
+	
+	
+	
+	
+			</ul>
+	
+	
+		  </div>
+	
+	
+		  <br>
+		  <div class="footer-contact">
+			<p>Please feel free to <a href="contact.html">Contact Us.</a></p>
+		  </div>
+		  <div class="footer-copyright">
+			<p>Copyright © 2023 SUPERHEALTH. All rights reserved.</p>
+	
+			<ul>
+			  <li><a href="#">Privacy Policy</a></li>
+			  <div class="vr"></div>
+			  <li><a href="#">Terms of Use</a></li>
+			  <div class="vr"></div>
+			  <li><a href="#">Sales and Refunds</a></li>
+			  <div class="vr"></div>
+			  <li><a href="#">Legal</a></li>
+			  <div class="vr"></div>
+			  <li><a href="#">Sitemap</a></li>
+			</ul>
+	
+			<div class="footer-lang">
+	
+			  <p>Taiwan</p>
+	
+			</div>
+		  </div>
+	
+		</div>
+	  </footer>
+	
+	
+	
+</body>
+</html>
